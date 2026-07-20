@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kartu Profil - Akmal Fahreza</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #0c0c0d;
+  --surface: #17171a;
+  --hairline: rgba(230, 220, 200, 0.14);
+  --ink: #ece7dc;
+  --muted: #8e8a80;
+  --gold: #b99a5b;
+  --gold-bright: #d4b876;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 24px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(185, 154, 91, 0.10) 0%, transparent 40%),
+    radial-gradient(circle at 85% 90%, rgba(185, 154, 91, 0.08) 0%, transparent 45%);
+
+  font-family: 'Inter', sans-serif;
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 620px;
+
+  background-color: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 10px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+
+  transition: border-color 0.4s ease, transform 0.4s ease;
+}
+
+.card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+}
+
+/* ===== Photo panel ===== */
+.photo-panel {
+  position: relative;
+  flex: 1 1 220px;
+  min-height: 260px;
+  overflow: hidden;
+}
+
+.foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(15%) contrast(1.05);
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.card:hover .foto {
+  transform: scale(1.06);
+  filter: grayscale(0%) contrast(1.05);
+}
+
+.photo-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(12,12,13,0.85) 100%);
+}
+
+.photo-tag {
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--ink);
+  z-index: 2;
+}
+
+/* ===== Info panel ===== */
+.info-panel {
+  flex: 1 1 260px;
+  padding: 34px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+.nama {
+  margin: 0 0 16px 0;
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.12;
+  color: var(--ink);
+}
+
+.deskripsi {
+  margin: 0 0 22px 0;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.tag {
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  color: var(--gold-bright);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  padding: 5px 10px;
+  transition: border-color 0.3s ease;
+}
+
+.tag:hover {
+  border-color: var(--gold);
+}
+
+.stats {
+  display: flex;
+  gap: 28px;
+  padding: 18px 0;
+  margin-bottom: 26px;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-num {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  color: var(--ink);
+}
+
+.stat-label {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.tombol {
+  align-self: flex-start;
+  padding: 13px 30px;
+
+  background: transparent;
+  color: var(--gold-bright);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  transition: background-color 0.35s ease, color 0.35s ease, letter-spacing 0.35s ease;
+}
+
+.tombol:hover {
+  background-color: var(--gold);
+  color: #0c0c0d;
+  letter-spacing: 3px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+  .photo-panel {
+    min-height: 200px;
+    flex-basis: 100%;
+  }
+
+  .info-panel {
+    padding: 28px 22px;
+  }
+
+  .nama {
+    font-size: 26px;
+  }
+}
+
+</style>
+</head>
+<body>
+
+  <div class="card">
+
+    <div class="photo-panel">
+      <img
+        src="https://i.pravatar.cc/500?img=12"
+        alt="Foto Akmal Fahreza"
+        class="foto"
+      >
+      <div class="photo-tag">📸 Akmal, 2026</div>
+    </div>
+
+    <div class="info-panel">
+      <span class="eyebrow">Kartu Profil</span>
+      <h2 class="nama">Akmal<br>Fahreza</h2>
+
+      <p class="deskripsi">
+        Siswa Kelas XII PPLG yang sedang belajar HTML &amp; CSS.
+        Suka membangun hal-hal kecil dari nol dan mencoba
+        merapikannya sampai terasa pas.
+      </p>
+
+      <div class="tags">
+        <span class="tag">Renang</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-num">XII</span>
+          <span class="stat-label">Kelas</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">PPLG</span>
+          <span class="stat-label">Jurusan</span>
+        </div>
+      </div>
+
+      <button class="tombol">Hubungi Saya</button>
+    </div>
+
+  </div>
+
+</body>
+</html>
